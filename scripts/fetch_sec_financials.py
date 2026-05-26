@@ -31,7 +31,7 @@ from pathlib import Path
 
 # SEC requires a descriptive User-Agent identifying the consumer.
 # Replace the email with a real contact address before deploying.
-USER_AGENT = "AutoDashboard research-prototype contact@example.com"
+USER_AGENT = "AutoDashboard research-prototype timothyftan.gh@gmail.com"
 
 # 10-digit zero-padded CIKs. Verify at https://www.sec.gov/cgi-bin/browse-edgar
 COMPANIES = {
