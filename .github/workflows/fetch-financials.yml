@@ -1,0 +1,63 @@
+name: Fetch SEC financials
+
+# Runs the SEC EDGAR fetcher on a weekly schedule and commits the refreshed
+# data file back to the repository. The dashboard reads the file via the
+# raw.githubusercontent.com CDN.
+
+on:
+  schedule:
+    # Sundays at 06:00 UTC. SEC filings post throughout the week; weekly is
+    # adequate for FY data and keeps churn low. Change to '0 6 * * *' for daily.
+    - cron: '0 6 * * 0'
+  workflow_dispatch:  # allow manual triggering from the Actions tab
+  push:
+    paths:
+      - 'scripts/fetch_sec_financials.py'
+      - '.github/workflows/fetch-financials.yml'
+
+permissions:
+  contents: write  # required to commit the refreshed data file
+
+concurrency:
+  group: fetch-financials
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run parser tests
+        run: python scripts/test_parser.py
+
+      - name: Fetch live data from SEC EDGAR
+        run: python scripts/fetch_sec_financials.py
+
+      - name: Show output
+        run: |
+          echo "--- data/financials.json (head) ---"
+          head -c 2000 data/financials.json
+          echo
+          echo "--- size ---"
+          wc -c data/financials.json
+
+      - name: Commit refreshed data
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/financials.json
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore(data): refresh SEC financials $(date -u +%Y-%m-%d)"
+            git push
+          fi
