@@ -30,7 +30,7 @@ from pathlib import Path
 # Configuration
 # ---------------------------------------------------------------------------
 
-USER_AGENT = "AutoDashboard research-prototype contact@example.com"
+USER_AGENT = "AutoDashboard research-prototype timothyftan.gh@gmail.com"
 
 # Tracked tickers. Where a US ADR exists with reasonable liquidity, prefer it;
 # otherwise use the home-market primary listing. Mixed currencies are fine —
