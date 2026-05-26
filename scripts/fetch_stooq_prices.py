@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+#trigger
 """
 fetch_stooq_prices.py
 
