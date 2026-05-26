@@ -1,0 +1,106 @@
+name: Fetch live data
+
+# Runs all data fetchers (SEC EDGAR financials, Stooq stock prices) on a
+# weekly schedule. Each fetcher runs in its own job so a failure in one
+# doesn't block the other.
+
+on:
+  schedule:
+    # Sundays at 06:00 UTC.
+    - cron: '0 6 * * 0'
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/fetch_*.py'
+      - '.github/workflows/fetch-data.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-data
+  cancel-in-progress: false
+
+jobs:
+
+  # -------------------------------------------------------------------------
+  # SEC EDGAR — annual financials for US-listed OEMs
+  # -------------------------------------------------------------------------
+  sec-financials:
+    name: SEC EDGAR financials
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run parser tests
+        run: python scripts/test_parser.py
+
+      - name: Fetch live data
+        run: python scripts/fetch_sec_financials.py
+
+      - name: Show output
+        run: |
+          echo "--- data/financials.json (head) ---"
+          head -c 2000 data/financials.json
+          echo
+          wc -c data/financials.json
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase  # avoid push race with the stooq job
+          git add data/financials.json
+          if git diff --staged --quiet; then
+            echo "No changes to financials.json"
+          else
+            git commit -m "chore(data): refresh SEC financials $(date -u +%Y-%m-%d)"
+            git push
+          fi
+
+  # -------------------------------------------------------------------------
+  # Stooq — weekly indexed stock prices
+  # -------------------------------------------------------------------------
+  stooq-prices:
+    name: Stooq stock prices
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: sec-financials   # serialise to avoid push race on data/
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run parser tests
+        run: python scripts/test_stooq_parser.py
+
+      - name: Fetch live data
+        run: python scripts/fetch_stooq_prices.py
+
+      - name: Show output
+        run: |
+          echo "--- data/stocks.json metadata ---"
+          python -c "import json; m=json.load(open('data/stocks.json'))['_meta']; print(json.dumps(m, indent=2))"
+          wc -c data/stocks.json
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase  # avoid push race with the sec job
+          git add data/stocks.json
+          if git diff --staged --quiet; then
+            echo "No changes to stocks.json"
+          else
+            git commit -m "chore(data): refresh stock prices $(date -u +%Y-%m-%d)"
+            git push
+          fi
