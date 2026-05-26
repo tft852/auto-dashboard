@@ -1,0 +1,307 @@
+{
+  "_meta": {
+    "source": "SEC EDGAR (data.sec.gov)",
+    "generatedAt": "2026-05-26T09:50:17.098728+00:00",
+    "schemaVersion": 1,
+    "companies": [
+      "Tesla",
+      "Ford",
+      "GM",
+      "Stellantis"
+    ]
+  },
+  "companies": {
+    "Tesla": {
+      "name": "Tesla",
+      "cik": "0001318605",
+      "entityName": "Tesla,\u00a0Inc.",
+      "raw": {
+        "revenue": {
+          "value": 94827000000,
+          "fiscalYear": 2025,
+          "periodEnd": "2025-12-31",
+          "form": "10-K",
+          "filed": "2026-01-29",
+          "currency": "USD",
+          "sourceTag": "us-gaap:Revenues"
+        },
+        "grossProfit": {
+          "value": 17094000000,
+          "fiscalYear": 2025,
+          "periodEnd": "2025-12-31",
+          "form": "10-K",
+          "filed": "2026-01-29",
+          "currency": "USD",
+          "sourceTag": "us-gaap:GrossProfit"
+        },
+        "operatingIncome": {
+          "value": 4355000000,
+          "fiscalYear": 2025,
+          "periodEnd": "2025-12-31",
+          "form": "10-K",
+          "filed": "2026-01-29",
+          "currency": "USD",
+          "sourceTag": "us-gaap:OperatingIncomeLoss"
+        },
+        "netIncome": {
+          "value": 3794000000,
+          "fiscalYear": 2025,
+          "periodEnd": "2025-12-31",
+          "form": "10-K",
+          "filed": "2026-01-29",
+          "currency": "USD",
+          "sourceTag": "us-gaap:NetIncomeLoss"
+        },
+        "operatingCashFlow": {
+          "value": 14747000000,
+          "fiscalYear": 2025,
+          "periodEnd": "2025-12-31",
+          "form": "10-K",
+          "filed": "2026-01-29",
+          "currency": "USD",
+          "sourceTag": "us-gaap:NetCashProvidedByUsedInOperatingActivities"
+        },
+        "capex": {
+          "value": 8527000000,
+          "fiscalYear": 2025,
+          "periodEnd": "2025-12-31",
+          "form": "10-K",
+          "filed": "2026-01-29",
+          "currency": "USD",
+          "sourceTag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
+        },
+        "cash": {
+          "value": 16513000000,
+          "fiscalYear": 2025,
+          "periodEnd": "2025-12-31",
+          "form": "10-K",
+          "filed": "2026-01-29",
+          "currency": "USD",
+          "sourceTag": "us-gaap:CashAndCashEquivalentsAtCarryingValue"
+        },
+        "longTermDebt": {
+          "value": 0,
+          "fiscalYear": 2013,
+          "periodEnd": "2013-12-31",
+          "form": "10-K",
+          "filed": "2014-02-26",
+          "currency": "USD",
+          "sourceTag": "us-gaap:LongTermDebtNoncurrent"
+        }
+      },
+      "derived": {
+        "grossMargin": 18.03,
+        "opMargin": 4.59,
+        "netMargin": 4.0,
+        "freeCashFlow": 6220000000,
+        "fcfMargin": 6.56,
+        "netCash": 16513000000
+      }
+    },
+    "Ford": {
+      "name": "Ford",
+      "cik": "0000037996",
+      "entityName": "Ford Motor Co",
+      "raw": {
+        "revenue": {
+          "value": 184992000000,
+          "fiscalYear": 2024,
+          "periodEnd": "2024-12-31",
+          "form": "10-K",
+          "filed": "2025-02-06",
+          "currency": "USD",
+          "sourceTag": "us-gaap:Revenues"
+        },
+        "grossProfit": null,
+        "operatingIncome": {
+          "value": -9169000000,
+          "fiscalYear": 2025,
+          "periodEnd": "2025-12-31",
+          "form": "10-K",
+          "filed": "2026-02-11",
+          "currency": "USD",
+          "sourceTag": "us-gaap:OperatingIncomeLoss"
+        },
+        "netIncome": {
+          "value": 5879000000,
+          "fiscalYear": 2024,
+          "periodEnd": "2024-12-31",
+          "form": "10-K",
+          "filed": "2025-02-06",
+          "currency": "USD",
+          "sourceTag": "us-gaap:NetIncomeLoss"
+        },
+        "operatingCashFlow": {
+          "value": 21282000000,
+          "fiscalYear": 2025,
+          "periodEnd": "2025-12-31",
+          "form": "10-K",
+          "filed": "2026-02-11",
+          "currency": "USD",
+          "sourceTag": "us-gaap:NetCashProvidedByUsedInOperatingActivities"
+        },
+        "capex": null,
+        "cash": {
+          "value": 23356000000,
+          "fiscalYear": 2025,
+          "periodEnd": "2025-12-31",
+          "form": "10-K",
+          "filed": "2026-02-11",
+          "currency": "USD",
+          "sourceTag": "us-gaap:CashAndCashEquivalentsAtCarryingValue"
+        },
+        "longTermDebt": {
+          "value": 291000000,
+          "fiscalYear": 2020,
+          "periodEnd": "2020-12-31",
+          "form": "10-K",
+          "filed": "2021-02-05",
+          "currency": "USD",
+          "sourceTag": "us-gaap:LongTermDebtNoncurrent"
+        }
+      },
+      "derived": {
+        "opMargin": -4.96,
+        "netMargin": 3.18,
+        "netCash": 23065000000
+      }
+    },
+    "GM": {
+      "name": "GM",
+      "cik": "0001467858",
+      "entityName": "GENERAL MOTORS COMPANY",
+      "raw": {
+        "revenue": {
+          "value": 185019000000,
+          "fiscalYear": 2025,
+          "periodEnd": "2025-12-31",
+          "form": "10-K",
+          "filed": "2026-01-27",
+          "currency": "USD",
+          "sourceTag": "us-gaap:Revenues"
+        },
+        "grossProfit": {
+          "value": -3135000000,
+          "fiscalYear": 2012,
+          "periodEnd": "2012-12-31",
+          "form": "10-K",
+          "filed": "2013-02-15",
+          "currency": "USD",
+          "sourceTag": "us-gaap:GrossProfit"
+        },
+        "operatingIncome": {
+          "value": 2909000000,
+          "fiscalYear": 2025,
+          "periodEnd": "2025-12-31",
+          "form": "10-K",
+          "filed": "2026-01-27",
+          "currency": "USD",
+          "sourceTag": "us-gaap:OperatingIncomeLoss"
+        },
+        "netIncome": {
+          "value": 2697000000,
+          "fiscalYear": 2025,
+          "periodEnd": "2025-12-31",
+          "form": "10-K",
+          "filed": "2026-01-27",
+          "currency": "USD",
+          "sourceTag": "us-gaap:NetIncomeLoss"
+        },
+        "operatingCashFlow": {
+          "value": 26867000000,
+          "fiscalYear": 2025,
+          "periodEnd": "2025-12-31",
+          "form": "10-K",
+          "filed": "2026-01-27",
+          "currency": "USD",
+          "sourceTag": "us-gaap:NetCashProvidedByUsedInOperatingActivities"
+        },
+        "capex": {
+          "value": 9303000000,
+          "fiscalYear": 2025,
+          "periodEnd": "2025-12-31",
+          "form": "10-K",
+          "filed": "2026-01-27",
+          "currency": "USD",
+          "sourceTag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
+        },
+        "cash": {
+          "value": 20945000000,
+          "fiscalYear": 2025,
+          "periodEnd": "2025-12-31",
+          "form": "10-K",
+          "filed": "2026-01-27",
+          "currency": "USD",
+          "sourceTag": "us-gaap:CashAndCashEquivalentsAtCarryingValue"
+        },
+        "longTermDebt": null
+      },
+      "derived": {
+        "grossMargin": -1.69,
+        "opMargin": 1.57,
+        "netMargin": 1.46,
+        "freeCashFlow": 17564000000,
+        "fcfMargin": 9.49
+      }
+    },
+    "Stellantis": {
+      "name": "Stellantis",
+      "cik": "0001605484",
+      "entityName": "Stellantis N.V.",
+      "raw": {
+        "revenue": {
+          "value": 153508000000,
+          "fiscalYear": 2025,
+          "periodEnd": "2025-12-31",
+          "form": "20-F",
+          "filed": "2026-02-26",
+          "currency": "EUR",
+          "sourceTag": "ifrs-full:Revenue"
+        },
+        "grossProfit": null,
+        "operatingIncome": {
+          "value": -26254000000,
+          "fiscalYear": 2025,
+          "periodEnd": "2025-12-31",
+          "form": "20-F",
+          "filed": "2026-02-26",
+          "currency": "EUR",
+          "sourceTag": "ifrs-full:ProfitLossFromOperatingActivities"
+        },
+        "netIncome": {
+          "value": -22332000000,
+          "fiscalYear": 2025,
+          "periodEnd": "2025-12-31",
+          "form": "20-F",
+          "filed": "2026-02-26",
+          "currency": "EUR",
+          "sourceTag": "ifrs-full:ProfitLoss"
+        },
+        "operatingCashFlow": {
+          "value": -4650000000,
+          "fiscalYear": 2025,
+          "periodEnd": "2025-12-31",
+          "form": "20-F",
+          "filed": "2026-02-26",
+          "currency": "EUR",
+          "sourceTag": "ifrs-full:CashFlowsFromUsedInOperatingActivities"
+        },
+        "capex": null,
+        "cash": {
+          "value": 30146000000,
+          "fiscalYear": 2025,
+          "periodEnd": "2025-12-31",
+          "form": "20-F",
+          "filed": "2026-02-26",
+          "currency": "EUR",
+          "sourceTag": "ifrs-full:CashAndCashEquivalents"
+        },
+        "longTermDebt": null
+      },
+      "derived": {
+        "opMargin": -17.1,
+        "netMargin": -14.55
+      }
+    }
+  }
+}
